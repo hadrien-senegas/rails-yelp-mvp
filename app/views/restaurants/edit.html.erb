@@ -1,0 +1,16 @@
+<div class="container m-4 d-flex">
+<div class="card" style="width: 18rem">
+<h1 class="card-header">futur form</h1>
+
+<%= form_with model: @restaurant do |f| %>
+  <%= f.label :name%>
+  <%= f.text_field :name %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.submit %>
+
+<% end %>
+
+<p><%= link_to "back to list", restaurants_path, class: "btn btn-primary" %></p>
+</div>
+</div>

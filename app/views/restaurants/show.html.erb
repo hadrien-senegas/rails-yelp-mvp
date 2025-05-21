@@ -1,0 +1,25 @@
+<div class="container m-4">
+<div class="card" style="width: 18rem">
+<h2 class="card-header"><%= @restaurant.name %></h2>
+<p class="card-text"><%= @restaurant.address %></p>
+<p class="card-text"><%= @restaurant.category %></p>
+<p><strong>Reviews</strong></p>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>
+<br>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :content %>
+  <%= f.submit class: "btn btn-primary"%>
+<% end %>
+<br>
+<div class="d-flex">
+<p><%= link_to "Edit", edit_restaurant_path, class: "btn btn-primary"  %></p>
+<p><%= link_to "Delete", restaurant_path(@restaurant), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %></p>
+<p><%= link_to "Back", restaurants_path, class: "btn btn-primary"  %></p>
+</div>
+</div>
+</div>

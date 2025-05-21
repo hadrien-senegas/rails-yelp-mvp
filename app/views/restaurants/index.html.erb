@@ -1,0 +1,9 @@
+<div class="container m-4">
+
+<h1 class="card-header">RESTAURANTS</h1>
+<ul><% @restaurants.each do |restaurant| %>
+  <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+<% end %></ul>
+
+<p><%= link_to "new", new_restaurant_path, class: "btn btn-primary" %></p>
+</div>
